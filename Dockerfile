@@ -11,7 +11,7 @@ FROM java:7
 #RUN yum -y install supervisor && yum clean all
 #COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 
-RUN curl  http://dev.bedework.org/downloads/3.10.4/quickstart-3.10.4.zip  > /tmp/quickstart-3.10.4.zip \
+RUN curl --silent  http://dev.bedework.org/downloads/3.10.4/quickstart-3.10.4.zip  > /tmp/quickstart-3.10.4.zip \
 	&& unzip /tmp/quickstart-3.10.4.zip  -x "*/*/.svn/*" \
 	&& rm /tmp/quickstart-3.10.4.zip
 
@@ -22,4 +22,4 @@ WORKDIR bedework
 RUN bash bw deployConf
 
 EXPOSE 8080
-CMD ["./startjboss -debug"]
+CMD ["./startjboss","-debug"]
