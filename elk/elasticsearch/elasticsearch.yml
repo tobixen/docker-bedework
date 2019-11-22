@@ -1,6 +1,0 @@
-
-#
-# For this demo files, just don't apply routing threshold_enabled
-#
-cluster.routing.allocation.disk.threshold_enabled : false
-

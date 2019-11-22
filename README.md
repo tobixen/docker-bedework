@@ -1,24 +1,32 @@
-# dockerfiles
-Dockerfiles for various services
+# Bedework Caldav Server Image
 
-## 389 with TLS
-A 389ds instance with TLS authentication.
-Run with docker-compose up, or with
+Bedework is a web and caldav server served via jboss. 
 
-    #docker run --rm -ti --entrypoint /entrypoint.sh --hostname myhost.docker  389:tls
+This image runs a bedework quickstart with a full featured caldav server.
 
-A Certification Authority with two certs is created:
-  
-    - the server certificate
-    - a user certificate
+## Running bedework
 
-You can manipulate certificates connecting to the 
-machine volume /etc/dirsrv/slapd-$hostname
+Run the quickstart with:
 
-    #certutil -d /etc/dirsrv/slapd-$hostname -L
+    #docker run -p 8080:8080 bedework
 
+Access the web applications at:
 
-## postfix with TLS
+  - http://localhost:8080/bedework  - main menu
+
+Make a simple caldav request with one of the already-provisioned users:
+
+    #curl -v http://vbede:bedework@localhost:8080/ucaldav/user/vbede/
 
 
-## Logstash, Elasticsearch
+## Configure bedework
+
+To configure bedework with:
+
+  - a separate datastore (eg. mysql)
+  - a custom directory server 
+  - whatever
+
+See https://wiki.jasig.org/display/BWK310/Running+Bedework
+
+

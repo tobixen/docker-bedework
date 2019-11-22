@@ -1,7 +1,0 @@
-m:
-  image: mongo
-  volumes:
-    - .:/code/
-  command: --auth --nojournal --smallfiles --replSet=r0  --keyFile=/code/mongod.key
-  
-  
