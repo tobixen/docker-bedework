@@ -7,20 +7,19 @@
 #
 # Further setup instructions here https://wiki.jasig.org/display/BWK310/Running+Bedework
 #
-FROM java:8
-MAINTAINER robipolli@gmail.com
-RUN yum -y install supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
+FROM java:7
+#RUN yum -y install supervisor && yum clean all
+#COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 
-RUN wget  http://dev.bedework.org/downloads/3.10.3/quickstart-3.10.3.zip  -O /quickstart-3.10.3.zip \
-	&& unzip /quickstart-3.10.3.zip  -x "*/*/.svn/*" \
-	&& rm /quickstart-3.10.3.zip
+RUN wget  http://dev.bedework.org/downloads/3.10.4/quickstart-3.10.4.zip  -O /quickstart-3.10.4.zip \
+	&& unzip /quickstart-3.10.4.zip  -x "*/*/.svn/*" \
+	&& rm /quickstart-3.10.4.zip
 
-RUN mv /quickstart-3.10.3 /bedework
+RUN mv /quickstart-3.10.4 /bedework
 WORKDIR /bedework
 
 # Setup configuration before supervisord starts bw.
 RUN bash bw deployConf
 
 EXPOSE 8080
-CMD ["/usr/bin/supervisord"]
+CMD ["./startjboss -debug"]
