@@ -9,7 +9,7 @@
 #
 FROM java:8
 MAINTAINER robipolli@gmail.com
-RUN apt-get update && apt-get -y install supervisor
+RUN yum -y install supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 
 RUN wget  http://dev.bedework.org/downloads/3.10.3/quickstart-3.10.3.zip  -O /quickstart-3.10.3.zip \
