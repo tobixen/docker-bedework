@@ -11,7 +11,7 @@ FROM java:7
 #RUN yum -y install supervisor && yum clean all
 #COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf 
 
-RUN wget  http://dev.bedework.org/downloads/3.10.4/quickstart-3.10.4.zip  -O /quickstart-3.10.4.zip \
+RUN curl  http://dev.bedework.org/downloads/3.10.4/quickstart-3.10.4.zip  > /quickstart-3.10.4.zip \
 	&& unzip /quickstart-3.10.4.zip  -x "*/*/.svn/*" \
 	&& rm /quickstart-3.10.4.zip
 
