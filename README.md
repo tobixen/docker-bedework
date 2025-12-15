@@ -1,3 +1,5 @@
+This fork of the Bedework image was made for running in OpenShift and serving as a test server for the Python CalDAV Client library.  The commits done here appears to be for simplifying things and getting it to run in some old versions of OpenShift (one of the requirements being that things should run without using the root account).  It's many years ago, and the Python CalDAV Client library now uses the ioggstream/bedework docker image for test purposes.
+
 # Bedework Caldav Server Image
 
 Bedework is a web and caldav server served via jboss. 
